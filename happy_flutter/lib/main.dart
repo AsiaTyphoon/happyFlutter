@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'learning/dart/Object.dart';
+import 'learning/flutter/Flutter.dart';
 
 void main() {
   Object.runLearning();
 
-  runApp(MyApp());
+  runApp(FirstStatelessWidget());
+  // runApp(MyApp());
 }
+
+// 屏幕宽高
+double kScreenWidth = 0;
+double kScreenHeight = 0;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
