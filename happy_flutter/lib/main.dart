@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'learning/dart/Object.dart';
 
 void main() {
+  Object.runLearning();
+
   runApp(MyApp());
 }
 
