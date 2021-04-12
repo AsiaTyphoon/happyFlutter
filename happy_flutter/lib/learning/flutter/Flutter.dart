@@ -45,7 +45,8 @@ class FirstScaffold extends StatelessWidget {
 class FirstCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: FirstContainer(300));
+    // return Center(child: FirstContainer(800));
+    return Center(child: FirstListView(),);
   }
 }
 
@@ -71,7 +72,7 @@ class FirstContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FirstImage(),
+      child: FirstListView(),
       margin: EdgeInsets.all(10), // 外边距
       padding: EdgeInsets.fromLTRB(20, 5, 40, 1), // 内边距
       width: kScreenWidth,
@@ -83,6 +84,29 @@ class FirstContainer extends StatelessWidget {
             Radius.circular(10),
           )),
     );
+  }
+}
+
+// 列表
+class FirstListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: _dataArr(),
+    );
+  }
+
+  List<Widget> _dataArr() {
+    var list = <Widget>[];
+    var count = 20;
+    for (var i = 0; i < count; i++) {
+      list.add(ListTile(
+        title: Text('this is title ${i}'),
+        leading: Image.asset('assets/images/navi.jpeg'),
+        subtitle: Text('this is subtitle ${i}'),
+      ));
+    }
+    return list.toList();
   }
 }
 
@@ -98,8 +122,7 @@ class FirstImage extends StatelessWidget {
 
     // 加载网络图片
     return Image.network(
-        'https://upload-images.jianshu.io/upload_images/5361063-e413832da0038304.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800'
-    );
+        'https://upload-images.jianshu.io/upload_images/5361063-e413832da0038304.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800');
   }
 }
 
