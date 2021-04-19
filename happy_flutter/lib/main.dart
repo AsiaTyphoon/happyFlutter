@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'learning/dart/Object.dart';
 import 'learning/flutter/tabbar.dart';
+import 'learning/dart/dialog.dart';
 
 void main() {
   Object.runLearning();
@@ -68,6 +69,83 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  // 提示框
+  void _showDialog() async {
+
+    // 底部列表
+    var result = await showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            height: 200,
+            child: Column(
+              children: [
+                TextButton(
+                    onPressed: () {
+                      print("done");
+                      Navigator.pop(context, 'A'); // dismiss alert
+                    },
+                    child: Text('确定')),
+                Divider(), // 分割线
+                TextButton(
+                    onPressed: () {
+                      print("cancel");
+                      Navigator.pop(context, 'B'); // dismiss alert
+                    },
+                    child: Text('取消'))
+              ],
+            ),
+          );
+        });
+
+    // var result = await showDialog(
+    //     context: context,
+    //     builder: (context) {
+    //
+    //
+    //
+    //       // 列表
+    //       return SimpleDialog(
+    //         children: [
+    //           TextButton(
+    //               onPressed: () {
+    //                 print("done");
+    //                 Navigator.pop(context, 'A'); // dismiss alert
+    //               },
+    //               child: Text('确定')),
+    //           TextButton(
+    //               onPressed: () {
+    //                 print("cancel");
+    //                 Navigator.pop(context, 'B'); // dismiss alert
+    //               },
+    //               child: Text('取消'))
+    //         ],
+    //       );
+    //
+    //       // 提示
+    //       return AlertDialog(
+    //         title: Text('提示信息！'),
+    //         content: Text('您确定要删除吗？'),
+    //         actions: [
+    //           TextButton(
+    //               onPressed: () {
+    //                 print("done");
+    //                 Navigator.pop(context, 'A'); // dismiss alert
+    //               },
+    //               child: Text('确定')),
+    //           TextButton(
+    //               onPressed: () {
+    //                 print("cancel");
+    //                 Navigator.pop(context, 'B'); // dismiss alert
+    //               },
+    //               child: Text('取消'))
+    //         ],
+    //       );
+    //     });
+
+    print('result: ${result}');
+  }
+
   var _tabbar = HomeTabbar();
 
   @override
@@ -115,36 +193,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: Container(
-      //   width: 70,
-      //   height: 70,
-      //   padding: EdgeInsets.all(5),
-      //   margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-      //   decoration: BoxDecoration(
-      //     borderRadius: BorderRadius.circular(35),
-      //     color: Colors.white,
-      //   ),
-      //   // child: FloatingActionButton(
-      //   //   child: Image.asset(
-      //   //     'assets/images/tabbar_live_on.png',
-      //   //     width: 70,
-      //   //     height: 70,
-      //   //   ),
-      //   //   onPressed: () {
-      //   //     _tabbar.selectedTV();
-      //   //     //调整进入Addpage()
-      //   //   },
-      //   //   elevation: 5,
-      //   //   backgroundColor: Colors.yellow,
-      //   // ),
-      // ),
-
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _showDialog,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

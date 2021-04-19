@@ -18,11 +18,11 @@ class _HomeTabbar extends State<HomeTabbar> {
   ];
 
   var tabbarItems = <TabbarItem>[
-    TabbarItem('首页', 'tabbar_home', true, FuwuViewController()),
-    TabbarItem('拍客', 'tabbar_paike', false, FuwuViewController()),
-    TabbarItem('直播', 'tabbar_live', false, FuwuViewController()),
-    TabbarItem('服务', 'tabbar_fuwu', false, FuwuViewController()),
-    TabbarItem('我的', 'tabbar_mine', false, FuwuViewController()),
+    TabbarItem('首页', 'tabbar_home', true),
+    TabbarItem('拍客', 'tabbar_paike', false),
+    TabbarItem('直播', 'tabbar_live', false),
+    TabbarItem('服务', 'tabbar_fuwu', false),
+    TabbarItem('我的', 'tabbar_mine', false),
   ];
 
   @override
