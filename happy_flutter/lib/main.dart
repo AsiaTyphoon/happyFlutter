@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'learning/dart/Object.dart';
-import 'learning/flutter/Flutter.dart';
+import 'learning/flutter/tabbar.dart';
 
 void main() {
   Object.runLearning();
 
-  runApp(FirstStatelessWidget());
-  // runApp(MyApp());
+  // runApp(FirstStatelessWidget());
+  runApp(MyApp());
 }
 
 // 屏幕宽高
@@ -68,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  var _tabbar = HomeTabbar();
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -77,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      bottomNavigationBar: _tabbar,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -112,11 +115,36 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: Container(
+      //   width: 70,
+      //   height: 70,
+      //   padding: EdgeInsets.all(5),
+      //   margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+      //   decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.circular(35),
+      //     color: Colors.white,
+      //   ),
+      //   // child: FloatingActionButton(
+      //   //   child: Image.asset(
+      //   //     'assets/images/tabbar_live_on.png',
+      //   //     width: 70,
+      //   //     height: 70,
+      //   //   ),
+      //   //   onPressed: () {
+      //   //     _tabbar.selectedTV();
+      //   //     //调整进入Addpage()
+      //   //   },
+      //   //   elevation: 5,
+      //   //   backgroundColor: Colors.yellow,
+      //   // ),
+      // ),
+
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

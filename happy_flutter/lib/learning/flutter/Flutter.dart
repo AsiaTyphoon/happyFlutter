@@ -100,15 +100,37 @@ class FirstListView extends StatelessWidget {
     var list = <Widget>[];
     var count = 20;
     for (var i = 0; i < count; i++) {
-      list.add(ListTile(
-        title: Text('this is title ${i}'),
+      list.add(ListTile(// 类似于cell
         leading: Image.asset('assets/images/navi.jpeg'),
+        title: Text('this is title ${i}'),
         subtitle: Text('this is subtitle ${i}'),
       ));
     }
     return list.toList();
   }
 }
+
+// 流布局
+
+
+// 按钮
+class FirstRaisedButton extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return RaisedButton(
+      child: Text(
+        'sssss'
+      ),
+      onPressed: (){
+
+      },
+    );
+  }
+
+}
+
 
 // 图片
 class FirstImage extends StatelessWidget {
