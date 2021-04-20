@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:happy_flutter/learning/flutter/fuwu/fuwu.dart';
+import 'package:happy_flutter/learning/flutter/home/home.dart';
 
 class HomeTabbar extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _HomeTabbar extends State<HomeTabbar> {
   int selectedIndex = 0;
 
   List _pageList = [
-    FuwuViewController(),
+    HomePage(),
     FuwuViewController(),
     FuwuViewController(),
     FuwuViewController(),
@@ -27,6 +28,7 @@ class _HomeTabbar extends State<HomeTabbar> {
 
   @override
   Widget build(BuildContext context) {
+
     List<BottomNavigationBarItem> tabbarWidgets = tabbarItems.map((value) {
       //print('ssssss: ${value.selected}');
       TextStyle titleStyle = TextStyle(
@@ -40,26 +42,30 @@ class _HomeTabbar extends State<HomeTabbar> {
           label: value.title);
     }).toList();
 
-    return BottomNavigationBar(
-      items: tabbarWidgets,
-      currentIndex: selectedIndex,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.red,
-      unselectedFontSize: 14,
-      selectedFontSize: 14,
-      onTap: (index) {
-        setState(() {
-          if (index < this.tabbarItems.length) {
-            this.tabbarItems.map((value) {
-              value.selected = false;
-            }).toList();
+    return Scaffold(
+      body: _pageList[selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: tabbarWidgets,
+        currentIndex: selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.red,
+        unselectedFontSize: 14,
+        selectedFontSize: 14,
+        onTap: (index) {
+          setState(() {
+            if (index < this.tabbarItems.length) {
+              this.tabbarItems.map((value) {
+                value.selected = false;
+              }).toList();
 
-            this.tabbarItems[index].selected = true;
-          }
-          this.selectedIndex = index;
-        });
-      },
+              this.tabbarItems[index].selected = true;
+            }
+            this.selectedIndex = index;
+          });
+        },
+      ),
     );
+
   }
 }
 
