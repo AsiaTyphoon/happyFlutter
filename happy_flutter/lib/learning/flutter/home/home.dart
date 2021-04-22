@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../dart/dialog.dart';
+import 'network.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,7 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  List _titleList = ['dialog'];
+  List _titleList = ['dialog', 'network'];
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,10 @@ class _HomePage extends State<HomePage> {
     if (name == 'dialog') {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return DialogPage();
+      }));
+    } else if (name == 'network') {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return NetworkPage();
       }));
     }
   }
